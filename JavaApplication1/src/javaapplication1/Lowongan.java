@@ -5,10 +5,32 @@
  */
 package javaapplication1;
 
-/**
- *
- * @author acer
- */
 public class Lowongan {
+    
+    private BerkasLamaran[] berkasLamaranMasuk = new BerkasLamaran[1000];
+    private BerkasLamaran[] berkasLamaranDiterima = new BerkasLamaran[1000];
+    String a="test";
+    private int counterBerkasMasuk=0;
+    private int counterBerkasDiterima=0;
+    
+    public void addBerkas(BerkasLamaran bks){
+        berkasLamaranMasuk[counterBerkasMasuk]=bks;
+        counterBerkasMasuk++;
+    }
+    
+    public void terimaBerkas(BerkasLamaran bks){
+        berkasLamaranDiterima[counterBerkasDiterima]=bks;
+        counterBerkasDiterima++;
+    }
+    
+    public Lowongan(){
+        
+    }
+    
+    
+    public Lowongan getIdLowongan(){
+        return Lowongan.this;
+    }
+   
     
 }
