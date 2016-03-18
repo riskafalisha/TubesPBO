@@ -28,14 +28,14 @@ public class Yayasan {
 	public void displayPerusahaan(){
 		System.out.println("\tData Perusahaan :");
 		for (int i=0; i<index; i++){
-			System.out.println("\t"+ (i+1) + "\tNama Perusahaan :"+daftarPerusahaan[i].getName());
+			System.out.println("\t"+ (i+1) + "\tNama Perusahaan :"+daftarPerusahaan[i].getNamaPerusahaan());
 		}
 	}
         
         public int searchLowongan(String namaPerusahaan){
             int id = -1;
             for (int i=0; i<index; i++){
-                if(daftarPerusahaan[i].getNama()==namaPerusahaan){
+                if(daftarPerusahaan[i].getNamaPerusahaan()==namaPerusahaan){
                     id = i;
                 }
             }

@@ -9,9 +9,14 @@ public class BerkasLamaran {
 
     private String nama;
     private String pekerjaan;
-    private String umur;
+    private int umur;
+    private String jenisKelamin;
 
-    public BerkasLamaran() {
+    public BerkasLamaran(String nama, String pekerjaan, int umur, String jenisKelamin) {
+        this.nama = nama;
+        this.pekerjaan = pekerjaan;
+        this.umur = umur;
+        this.jenisKelamin = jenisKelamin;
     }
 
     public String getNama() {
@@ -30,13 +35,20 @@ public class BerkasLamaran {
         this.pekerjaan = pekerjaan;
     }
 
-    public String getUmur() {
+    public int getUmur() {
         return umur;
     }
 
-    public void setUmur(String umur) {
+    public void setUmur(int umur) {
         this.umur = umur;
     }
-    
+
+    public String getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
     
 }
