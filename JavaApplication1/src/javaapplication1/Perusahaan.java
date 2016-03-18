@@ -24,7 +24,7 @@ public Perusahaan() {
     n = 0;  
 }
 public void createLowongan() {
-    daftarLowongan[n] = new Lowongan();
+    daftarLowongan[n] = new Lowongan(1000,1000);
     n++;
 }
 
