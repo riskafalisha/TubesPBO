@@ -9,35 +9,18 @@ package javaapplication1;
  *
  * @author ricky
  */
-public abstract class Orang {
+public class Orang {
     private String nama;
-    private int umur;
-    private String JenisKelamin;
 
-public Orang(String nama, int umur, String JenisKelamin) {
-    this.nama = nama;
-    this.umur = umur;
-    this.JenisKelamin = JenisKelamin;
-}
-public void setNama(String nama) {
-    this.nama = nama;
-}    
-public String getNama() {
-    return nama;
-}
-public void setUmur(int umur) {
-    this.umur = umur;
-}
-public int getUmur() {
-    return umur;
-}
-public void setJenisKelamin(String JenisKelamin) {
-    if(JenisKelamin=="Pria"||JenisKelamin == "Wanita"){
-        this.JenisKelamin = JenisKelamin;
+    public Orang(String nama) {
+        this.nama = nama;
     }
-        
-}
-public String getJenisKelamin() {
-    return JenisKelamin;
-}
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
 }

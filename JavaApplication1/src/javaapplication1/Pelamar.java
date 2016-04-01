@@ -9,35 +9,22 @@ package javaapplication1;
  *
  * @author acer
  */
-public class Pelamar extends Orang {
+public class Pelamar extends Orang{
+    private int umur;
+    private char jenisKelamin;
+    private BerkasLamaran berkas;
 
-    Lowongan lowongan;
-    BerkasLamaran berkas = null;
-    int index = 0;
-    int jmlBerkas;
-    String pekerjaan;
-    Perusahaan perusahaan;
-
-    public Pelamar(String nama, int umur, String JenisKelamin) {
-        super(nama, umur, JenisKelamin);
+    public Pelamar(String nama, int umur, char jenisKelamin) {
+        super(nama);
+        this.umur = umur;
+        this.jenisKelamin = jenisKelamin;        
     }
-
-    public void createBerkas(String nama, int umur, String jenisKelamin, String pekerjaan) {
-        super.setNama(nama);
-        super.setUmur(umur);
-        super.setJenisKelamin(jenisKelamin);
-        this.pekerjaan = pekerjaan;
-        berkas = new BerkasLamaran(nama, pekerjaan, umur, jenisKelamin);
+    
+    public void createBerkas(String pekerjaan){
+        berkas = new BerkasLamaran(super.getNama(), umur, jenisKelamin, pekerjaan);
     }
-
-    public void mendaftarLamaran() {
-        if (berkas != null) {
-            if (lowongan.getCounterBerkasMasuk() < lowongan.getMaxBerkasMasuk()) {
-                lowongan.setBerkasLamaranMasuk(lowongan.getCounterBerkasMasuk(),berkas);
-                lowongan.setCounterBerkasMasuk(lowongan.getCounterBerkasMasuk()+1);
-            }
-        } else {
-            System.out.println("Berkas belum dibuat!");
-        }
+    
+    public BerkasLamaran getBerkas(){
+        return berkas;
     }
 }

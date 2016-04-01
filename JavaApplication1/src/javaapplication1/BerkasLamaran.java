@@ -6,17 +6,16 @@
 package javaapplication1;
 
 public class BerkasLamaran {
-
     private String nama;
-    private String pekerjaan;
     private int umur;
-    private String jenisKelamin;
+    private char jenisKelamin;
+    private String pekerjaan;
 
-    public BerkasLamaran(String nama, String pekerjaan, int umur, String jenisKelamin) {
+    public BerkasLamaran(String nama, int umur, char jenisKelamin, String pekerjaan) {
         this.nama = nama;
-        this.pekerjaan = pekerjaan;
         this.umur = umur;
         this.jenisKelamin = jenisKelamin;
+        this.pekerjaan = pekerjaan;
     }
 
     public String getNama() {
@@ -27,14 +26,6 @@ public class BerkasLamaran {
         this.nama = nama;
     }
 
-    public String getPekerjaan() {
-        return pekerjaan;
-    }
-
-    public void setPekerjaan(String pekerjaan) {
-        this.pekerjaan = pekerjaan;
-    }
-
     public int getUmur() {
         return umur;
     }
@@ -43,12 +34,20 @@ public class BerkasLamaran {
         this.umur = umur;
     }
 
-    public String getJenisKelamin() {
+    public char getJenisKelamin() {
         return jenisKelamin;
     }
 
-    public void setJenisKelamin(String jenisKelamin) {
+    public void setJenisKelamin(char jenisKelamin) {
         this.jenisKelamin = jenisKelamin;
     }
-    
+
+    public String getPekerjaan() {
+        return pekerjaan;
+    }
+
+    public void setPekerjaan(String pekerjaan) {
+        this.pekerjaan = pekerjaan;
+    }  
 }
+

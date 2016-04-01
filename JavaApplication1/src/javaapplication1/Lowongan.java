@@ -5,86 +5,106 @@
  */
 package javaapplication1;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Lowongan {
 
-    private int maxBerkasMasuk;
-    private int maxBerkasDiterima;
-    private BerkasLamaran[] berkasLamaranMasuk;
-    private BerkasLamaran[] berkasLamaranDiterima;
-    String a = "test";
-    private int counterBerkasMasuk = 0;
-    private int counterBerkasDiterima = 0;
+    private ArrayList<BerkasLamaran> berkasMasuk = new ArrayList<>();
+    private ArrayList<BerkasLamaran> berkasDiterima = new ArrayList<>();
+    private String nama;
+    Date deadline;
 
-    public void addBerkas(BerkasLamaran bks) {
-        if (counterBerkasMasuk < maxBerkasMasuk) {
-            berkasLamaranMasuk[counterBerkasMasuk] = bks;
-            counterBerkasMasuk++;
+    public Lowongan(String nama, Date deadline) {
+        this.nama = nama;
+        this.deadline = deadline;
+    }
+
+    public Lowongan(String nama) {
+        this.nama = nama;
+    }
+
+    public void addBerkas(BerkasLamaran berkas) {
+        berkasMasuk.add(berkas);
+    }
+
+    public BerkasLamaran getBerkasMasuk(int id) {
+        return berkasMasuk.get(id);
+    }
+
+    public void removeBerkasMasuk(int id) {
+        berkasMasuk.remove(id);
+    }
+
+    public int searchBerkasMasuk(BerkasLamaran berkas) {
+        return berkasMasuk.indexOf(berkas);
+    }
+
+    public BerkasLamaran getBerkasDiterima(int id) {
+        return berkasDiterima.get(id);
+    }
+
+    public void removeBerkasDiterima(int id) {
+        berkasDiterima.remove(id);
+    }
+
+    public int searchBerkasDiterima(BerkasLamaran berkas) {
+        return berkasDiterima.indexOf(berkas);
+    }
+
+    public void masukToDiterima(BerkasLamaran berkas) {
+        int index = searchBerkasMasuk(berkas);
+        if (index != -1) {
+            berkasDiterima.add(berkasMasuk.get(index));
+            berkasMasuk.remove(index);
+        } else {
+            System.out.println("Berkas Tidak Ditemukan pada Berkas Masuk");
         }
     }
 
-    public void terimaBerkas(BerkasLamaran bks) {
-        if (counterBerkasDiterima < maxBerkasDiterima) {
-            berkasLamaranDiterima[counterBerkasDiterima] = bks;
-            counterBerkasDiterima++;
+    public void masukToDiterima(int index) {
+        if (index != -1) {
+            berkasDiterima.add(berkasMasuk.get(index));
+            berkasMasuk.remove(index);
+        } else {
+            System.out.println("Berkas Tidak Ditemukan pada Berkas Masuk");
         }
     }
 
-    public Lowongan(int maxBerkasMasuk, int maxBerkasDiterima) {
-        berkasLamaranDiterima = new BerkasLamaran[maxBerkasMasuk];
-        berkasLamaranMasuk = new BerkasLamaran[maxBerkasDiterima];
+    public String getNama() {
+        return nama;
     }
 
-    public Lowongan getIdLowongan() {
-        return Lowongan.this;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public int getCounterBerkasMasuk() {
-        return counterBerkasMasuk;
+    public Date getDeadline() {
+        return deadline;
     }
 
-    public void setCounterBerkasMasuk(int counterBerkasMasuk) {
-        this.counterBerkasMasuk = counterBerkasMasuk;
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
-    public int getCounterBerkasDiterima() {
-        return counterBerkasDiterima;
+    public void displayBerkasMasuk() {
+        if (!berkasMasuk.isEmpty()) {
+            for (int i = 0; i < berkasMasuk.size(); i++) {
+                System.out.println(i + 1 + ". " + berkasMasuk.get(i).getNama());
+            }
+        } else {
+            System.out.println("Berkas Masuk Kosong");
+        }
     }
 
-    public void setCounterBerkasDiterima(int counterBerkasDiterima) {
-        this.counterBerkasDiterima = counterBerkasDiterima;
+    public void displayBerkasDiterima() {
+        if (!berkasDiterima.isEmpty()) {
+            for (int i = 0; i < berkasDiterima.size(); i++) {
+                System.out.println(i + 1 + ". " + berkasDiterima.get(i).getNama());
+            }
+        }else{
+            System.out.println("Berkas Diterima Kosong");
+        }
     }
 
-    public int getMaxBerkasMasuk() {
-        return maxBerkasMasuk;
-    }
-
-    public void setMaxBerkasMasuk(int maxBerkasMasuk) {
-        this.maxBerkasMasuk = maxBerkasMasuk;
-    }
-
-    public int getMaxBerkasDiterima() {
-        return maxBerkasDiterima;
-    }
-
-    public void setMaxBerkasDiterima(int maxBerkasDiterima) {
-        this.maxBerkasDiterima = maxBerkasDiterima;
-    }
-
-    public BerkasLamaran getBerkasLamaranMasuk(int id) {
-        return berkasLamaranMasuk[id];
-    }
-
-    public void setBerkasLamaranMasuk(int id, BerkasLamaran berkasLamaranMasuk) {
-        this.berkasLamaranMasuk[id] = berkasLamaranMasuk;
-    }
-
-    public BerkasLamaran getBerkasLamaranDiterima(int id) {
-        return berkasLamaranDiterima[id];
-    }
-
-    public void setBerkasLamaranDiterima(int id, BerkasLamaran berkasLamaranDiterima) {
-        this.berkasLamaranDiterima[id] = berkasLamaranDiterima;
-    }
-
-    
 }

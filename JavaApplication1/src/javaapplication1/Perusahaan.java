@@ -5,87 +5,45 @@
  */
 package javaapplication1;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author Ricky
  */
-public class Perusahaan {
-    private String namaPerusahaan;
-    private String bidang;
-    private String kota;
-    private String lembaga;
-    private Lowongan[] daftarLowongan;
-    int n;
-    Pelamar pelamar;
-    boolean status;
+public class Perusahaan extends Orang {
+    ArrayList<Lowongan> daftarLowongan = new ArrayList<>();
     
-public Perusahaan() {
-    daftarLowongan = new Lowongan[9999];
-    n = 0;  
-}
-public void createLowongan() {
-    daftarLowongan[n] = new Lowongan(1000,1000);
-    n++;
-}
-
-    public String getNamaPerusahaan() {
-        return namaPerusahaan;
+    public Perusahaan(String nama) {
+        super(nama);
     }
-
-    public void setNamaPerusahaan(String namaPerusahaan) {
-        this.namaPerusahaan = namaPerusahaan;
+    
+    public void createLowongan(String nama, Date deadline){
+        Lowongan lowongan = new Lowongan(nama, deadline);
+        daftarLowongan.add(lowongan);
     }
-
-    public String getBidang() {
-        return bidang;
+    
+    public void createLowongan(String nama){
+        Lowongan lowongan = new Lowongan(nama);
+        daftarLowongan.add(lowongan);
     }
-
-    public void setBidang(String bidang) {
-        this.bidang = bidang;
+    
+    public Lowongan getLowongan(int id){
+        return daftarLowongan.get(id);
     }
-
-    public String getKota() {
-        return kota;
+    
+    public void removeLowongan(int id){
+        daftarLowongan.remove(id);
     }
-
-    public void setKota(String kota) {
-        this.kota = kota;
-    }
-
-    public String getLembaga() {
-        return lembaga;
-    }
-
-    public void setLembaga(String lembaga) {
-        this.lembaga = lembaga;
-    }
-    public Lowongan getLowongan(int indeks) {
-        return daftarLowongan[indeks];
-    }
-    public Lowongan getLowonganId(int idLowongan) {
-        int i = 0;
-        boolean found = false;
-        for(i = 0; i < n; i++) {
-            if(daftarLowongan[i].getIdLowongan().equals(idLowongan)) {
-                found = true;
-                break;
+    
+    public int searchLowongan(String nama){
+        int index = -1;
+        for (int i = 0; i < daftarLowongan.size(); i++) {
+            if (daftarLowongan.get(i).getNama().equals(nama)){
+                index = i;
             }
         }
-         if(found==false) {
-             System.out.println("Data tidak ada");
-         }
-         return daftarLowongan[i];
+        return index;
     }
-public void removeLowongan(){
-    for(int i=0; i < n; i++){
-        daftarLowongan[i] = null;
-    }
-}
-public void displayPelamar() {
-    
-}
-public void statusLowongan() {
-    status = true;
-    daftarLowongan = new Lowongan[9999];
-}
 }

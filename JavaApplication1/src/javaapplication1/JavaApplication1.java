@@ -5,6 +5,8 @@
  */
 package javaapplication1;
 
+import java.sql.Date;
+
 /**
 // *
  * @author acer
@@ -16,6 +18,12 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    Aplikasi aplikasi = new Aplikasi();
+        Perusahaan perusahaan = new Perusahaan("Honda");
+        perusahaan.createLowongan("CS");
+        aplikasi.addPerusahaan(perusahaan);
+        
+        aplikasi.mainMenu();
     }
     
 }
